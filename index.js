@@ -5,7 +5,11 @@ require('dotenv').config()
 const TodoModel = require('./Models/Todo')
 
 const app = express()
-app.use(cors())
+app.use(cors({
+    origin: ['http://localhost:5173', 'https://remarkable-unicorn-390067.netlify.app/'], // add your deployed frontend URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true
+}));
 app.use(express.json())
 
 
